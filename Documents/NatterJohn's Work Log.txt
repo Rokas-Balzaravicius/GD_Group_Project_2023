@@ -2,4 +2,6 @@
 
 14/09/2023: Started Unity
 
-19/09/2023:
+19/09/2023: Added Ed to the Game
+
+20/09/2023: Added the Nature Pack
