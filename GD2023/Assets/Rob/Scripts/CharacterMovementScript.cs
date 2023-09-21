@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CharacterMovementScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class CharacterMovementScript : MonoBehaviour
 
     float walkingSpeed = 3;
     private float turningSpeed = 90;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class CharacterMovementScript : MonoBehaviour
             transform.Rotate(Vector3.up, -turningSpeed*Time.deltaTime);
         }
 
+        
 
 
 
