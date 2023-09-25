@@ -4,4 +4,8 @@
 
 19/09/2023: Added Ed to the Game
 
-20/09/2023: Added the Nature Pack
+20/09/2023: Added the Nature Pack to our Assets
+
+21/09/2023: Added Jammo to the game
+
+25/09/2023: Allowed Jammo to move in all direction. (Need to fix an error with the animation)
