@@ -18,6 +18,14 @@ public class MoveJammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.S))
+        {   ///   s            =         u                      *       t
+            transform.position += -walkingSpeed * transform.forward * Time.deltaTime; ;
+            jammoAnimator.SetBool("isWalking", true);
+        }
+        else
+            jammoAnimator.SetBool("isWalking", false);
+
         if (Input.GetKey(KeyCode.W))
         {   ///   s            =         u                      *       t
             transform.position += walkingSpeed * transform.forward * Time.deltaTime; ;
@@ -30,6 +38,7 @@ public class MoveJammo : MonoBehaviour
         {
             transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
         }
+
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
