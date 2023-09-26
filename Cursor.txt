@@ -1,0 +1,3 @@
+How Does the Cursor function?
+
+The functionality of the cursor can vary depending on the game. Most 3rd Person games don't have a fixed position for the cursor whereas 1st person games usually have it in the center of the screen. Some gwenres may not require cursors at all. The cursor can be used to interact with objects in the game world. Some games may function entirely around the cursor such as a Tic Tac Toe game for example where its how you place the Xs and Os in each square.
