@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CharacterMovementScript : MonoBehaviour
@@ -10,6 +10,7 @@ public class CharacterMovementScript : MonoBehaviour
     float walkingSpeed = 2;
     float runningSpeed = 4;
     private float turningSpeed = 130;
+
     Animator edAnimator;
 
     // Start is called before the first frame update
@@ -59,6 +60,7 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("isWalking", true);
         }
 
+        
 
         if (Input.GetKey(KeyCode.S))
         {
