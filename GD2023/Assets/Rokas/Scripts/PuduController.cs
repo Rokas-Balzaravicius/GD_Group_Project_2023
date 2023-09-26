@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuduController : MonoBehaviour
 {
     float walkingSpeed = 3;
+    float runningSpeed = 5;
     private float turningSpeed = 90;
     Animator puduAnimator;
 
@@ -36,10 +37,22 @@ public class PuduController : MonoBehaviour
         }
 
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.position+= runningSpeed * transform.forward* Time.deltaTime;
 
+            puduAnimator.SetBool("isRunning", true);
+
+        }
+
+        else
+        {
+            puduAnimator.SetBool("isRunning", false) ;
+        }
 
     }
 
-
+    
+    
 
 }
