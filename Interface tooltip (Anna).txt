@@ -1,0 +1,5 @@
+An interface tooltip (window with text).
+
+1.Tooltips can contain various information, such as the object's name, description, characteristics, important details, and instructions for interaction. 
+2.Interface tooltips can serve different purposes, such as providing information about the health and mana of characters, item descriptions, warnings about hostile objects, or gameplay tips.
+3.The primary goal of interface tooltips is to simplify the player's interaction with the game world by making information more accessible and understandable.
