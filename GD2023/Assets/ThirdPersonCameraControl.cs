@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonCameraControl : MonoBehaviour
+public class thirdpersoncameracontrol : MonoBehaviour
 {
     public float desiredAngle = 0;
     private float bufferZone = 2;
@@ -21,16 +21,13 @@ public class ThirdPersonCameraControl : MonoBehaviour
             transform.RotateAround(transform.parent.position, Vector3.up, 1);
         }
         else
-         if (transform.localRotation.eulerAngles.y > desiredAngle + bufferZone)
-        {
-            print("Subtracting");
-            print("Euler y is " + transform.localRotation.eulerAngles.y.ToString());
-            print("Desired Angle " + desiredAngle.ToString() +
-                " + buffer of " + bufferZone.ToString());
+            if (transform.localRotation.eulerAngles.y > desiredAngle + bufferZone)
+            {
+                print("Subtracting");
+                print("Euler y is " + transform.localRotation.eulerAngles.y.ToString());
+                print("Desired Angle " + desiredAngle.ToString() + " + buffer of " + bufferZone.ToString());
+                transform.RotateAround(transform.parent.position, Vector3.up, -1);
+            }
 
-            transform.RotateAround(transform.parent.position, Vector3.up, -1);
-        }
-        
-    
     }
 }
