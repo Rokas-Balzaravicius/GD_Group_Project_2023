@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class thirdpersoncameracontrol : MonoBehaviour
 {
     public float desiredAngle = 0;
     private float bufferZone = 2;
+
     private float sensitivity = 50f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +31,16 @@ public class thirdpersoncameracontrol : MonoBehaviour
             transform.RotateAround(transform.parent.position, Vector3.up, 1);
         }
         else
+
             if (angleIsTooBig())
+
             {
                 print("Subtracting");
                 print("Euler y is " + transform.localRotation.eulerAngles.y.ToString());
                 print("Desired Angle " + desiredAngle.ToString() + " + buffer of " + bufferZone.ToString());
                 transform.RotateAround(transform.parent.position, Vector3.up, -1);
             }
+
 
         desiredAngle = Mathf.Lerp(desiredAngle, 0, 0.001f);
 
@@ -59,4 +66,12 @@ public class thirdpersoncameracontrol : MonoBehaviour
         if (angle > 180f) return adjustAngle180(angle - 360f);
         return adjustAngle180(angle + 360f);
     }
+
+
+    
+
+
+
+
+
 }

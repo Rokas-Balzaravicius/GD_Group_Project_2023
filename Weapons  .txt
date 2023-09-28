@@ -1,0 +1,17 @@
+Weapons  
+
+ 
+
+ 
+
+ 
+
+Every weapon has a different hit point  
+
+Weapons should have animation 
+
+Weapons should have durability once it reaches 0 durability the weapon will break and disappear from your inventory  
+
+ 
+
+Weapons would usually damage the enemies, but you could use a pickaxe to mine blocks, and you could use an axe to chop down trees. 
