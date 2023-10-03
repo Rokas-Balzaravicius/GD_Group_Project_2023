@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterMovementScript : MonoBehaviour
+public class AnnaMovementScript : MonoBehaviour
 {
 
     float currentSpeed = 2;
@@ -11,8 +10,14 @@ public class CharacterMovementScript : MonoBehaviour
     float runningSpeed = 4;
     private float turningSpeed = 100;
 
-    Animator edAnimator;
 
+    /// <summary>
+    /// The distance to the centr of the sphere used to check for interactable objects.
+    /// </summary>
+    float checkDistance = 1;
+    float checkRadius = 0.5f;
+
+    Animator edAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,7 @@ public class CharacterMovementScript : MonoBehaviour
             transform.position += currentSpeed * transform.forward * Time.deltaTime;
             edAnimator.SetBool("isWalking", true);
         }
-    
+
 
 
         if (Input.GetKey(KeyCode.A))
@@ -50,7 +55,7 @@ public class CharacterMovementScript : MonoBehaviour
 
             edAnimator.SetBool("isWalking", true);
         }
-    
+
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -60,7 +65,7 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("isWalking", true);
         }
 
-        
+
 
         if (Input.GetKey(KeyCode.S))
         {
@@ -84,21 +89,33 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("isWalkingBackwards", false);
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
+            //Harvest Check
+            Collider[] allPossibleInteractives = Physics.OverlapSphere(transform.position + checkDistance*transform.forward, checkRadius);
+            print("Found " + allPossibleInteractives.Length.ToString());
+            foreach (Collider c in allPossibleInteractives)
+            { 
+                AnnaRockScript myRock = c.GetComponent<AnnaRockScript>();
+                if (myRock != null)
+                {
+                    print("I found a rock!");
+                    myRock.IMHarvestinYou(this);
+                }
+
+
+            }
             edAnimator.SetBool("pickUP", true);
         }
-        else 
-        { 
+        else
+        {
             edAnimator.SetBool("pickUP", false);
         }
-
     }
 
-    private void OnCollisionEnter(Collision collision) 
+    private void OnCollisionEnter(Collision collision)
     {
-        print("Ouch!!! I just hit a "+ collision.gameObject.name);
-        
-    }   
+        print("Ouch!!! I just hit a " + collision.gameObject.name);
 
+    }
 }
