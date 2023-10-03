@@ -7,6 +7,11 @@ public class MoveJammo : MonoBehaviour
 
     float walkingSpeed = 3;
     private float turningSpeed = 90;
+    /// <summary>
+    /// The distance to the centre of the sphere used to check for interactable objects
+    /// </summary>
+    float checkDistance = 1;
+    float checkRadius = 0.5f;
     Animator jammoAnimator;
 
     // Start is called before the first frame update
@@ -44,8 +49,30 @@ public class MoveJammo : MonoBehaviour
             transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
         }
 
+        if (Input.GetKeyDown(KeyCode.F)) 
+        {
+            // Harvest Check
+            Collider[] allPossibleInteractives = Physics.OverlapSphere(transform.position + checkDistance * transform.forward, checkRadius);
+            print("Found " + allPossibleInteractives.Length.ToString());
+            foreach (Collider c in allPossibleInteractives)
+            {
+                RockScript myRock = c.GetComponent<RockScript>();
+                if (myRock != null)
+                {
+                    print("I found a rock");
+                    myRock.ImHarvestingYou(this);
+
+                }
+
+            }
+        }
 
 
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Ouch!!! I just hit a " + collision.gameObject.name);
     }
 }
