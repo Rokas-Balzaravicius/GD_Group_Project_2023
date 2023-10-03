@@ -148,14 +148,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277706896}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -2}
+  m_LocalRotation: {x: 0.043577887, y: -0.043577887, z: 0.0019026523, w: 0.99809736}
+  m_LocalPosition: {x: 0.5, y: 1, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1033239645}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5, y: -5, z: 0}
 --- !u!81 &277706898
 AudioListener:
   m_ObjectHideFlags: 0
@@ -349,6 +349,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a174811345e7c8d4b8d395d90b79e0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  run: 5
+  strafe: 5
+  jump: 15
+  sensitivity: 150
+  force: 300
 --- !u!54 &1033239647
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -364,7 +369,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1033239648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -376,7 +381,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Size: {x: 0.5, y: 0.9, z: 0.5}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1350496348
 GameObject:
@@ -391,7 +396,7 @@ GameObject:
   - component: {fileID: 1350496349}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
