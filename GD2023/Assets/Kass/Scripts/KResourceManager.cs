@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class KassResourceManager : MonoBehaviour
 {
-
 
     public Transform rockCloneTemplate;
 
@@ -19,7 +16,6 @@ public class ResourceManager : MonoBehaviour
         {
             Instantiate(rockCloneTemplate, getRockSpawnLocation(), Quaternion.identity);
         }
-
     }
 
     private Vector3 getRockSpawnLocation()
@@ -30,6 +26,6 @@ public class ResourceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
