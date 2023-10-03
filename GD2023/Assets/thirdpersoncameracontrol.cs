@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class thirdpersoncameracontrol : MonoBehaviour
 {
     public float desiredAngle = 0;
     private float bufferZone = 2;
+
     private float sensitivity = 90f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +24,9 @@ public class thirdpersoncameracontrol : MonoBehaviour
     {
 
         desiredAngle += sensitivity * Input.GetAxis("Horizontal") * Time.deltaTime;
+
         desiredAngle = Mathf.Clamp(desiredAngle,-179f, 179f);
+
         if (angleIsTooSmall())
         {
             print("Adding 1");
@@ -28,6 +34,7 @@ public class thirdpersoncameracontrol : MonoBehaviour
         }
         else
             if (angleIsTooBig())
+
         {
             print("Subtracting");
             print("Euler y is " + transform.localRotation.eulerAngles.y.ToString());
@@ -65,3 +72,4 @@ public class thirdpersoncameracontrol : MonoBehaviour
 
 
 }
+
