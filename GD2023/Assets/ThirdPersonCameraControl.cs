@@ -31,7 +31,6 @@ public class thirdpersoncameracontrol : MonoBehaviour
             transform.RotateAround(transform.parent.position, Vector3.up, 1);
         }
         else
-
             if (angleIsTooBig())
 
             {
