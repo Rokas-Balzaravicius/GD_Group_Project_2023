@@ -9,6 +9,12 @@ public class CharacterMovementScript : MonoBehaviour
     float currentSpeed = 2;
     float walkingSpeed = 2;
     float runningSpeed = 4;
+    
+    /// <summary>
+    /// The distance to the centre of the sphere used to check for interactable objects
+    /// </summary>
+    float checkDistance = 1;
+    float checkRadius = 0.5f;
     private float turningSpeed = 130;
 
     Animator edAnimator;
@@ -84,8 +90,22 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("isWalkingBackwards", false);
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
+            // Harvest Check
+            Collider[] allPossibleInteractives = Physics.OverlapSphere(transform.position + checkDistance * transform.forward, checkRadius);
+            print("Found " + allPossibleInteractives.Length.ToString());
+            foreach (Collider c in allPossibleInteractives)
+            {
+                RockScript myRock = c.GetComponent<RockScript>();
+                if (myRock != null)
+                {
+                    print("I found a rock");
+                    myRock.ImHavestingYou(this);
+
+                }
+            
+            }
             edAnimator.SetBool("pickUP", true);
         }
         else 
@@ -93,5 +113,11 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("pickUP", false);
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Ouch!!! I just hit a " + collision.gameObject.name);
+       
     }
 }
