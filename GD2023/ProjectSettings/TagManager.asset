@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerEyes
   - Ground
+  - Rock
   layers:
   - Default
   - TransparentFX
