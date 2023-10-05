@@ -69,8 +69,11 @@ public class MoveJammo : MonoBehaviour
                 if (myRock != null)
                 {
                     print("I found a rock");
+
                     myRock.ImHarvestingYou(this);
                     currentlyIam 
+
+ 
                 }
 
             }

@@ -29,16 +29,14 @@ public class thirdpersoncameracontrol : MonoBehaviour
 
         if (angleIsTooSmall())
         {
-           // print("Adding 1");
+
             transform.RotateAround(transform.parent.position, Vector3.up, 1);
         }
         else
             if (angleIsTooBig())
 
         {
-          //  print("Subtracting");
-          //  print("Euler y is " + transform.localRotation.eulerAngles.y.ToString());
-          //  print("Desired Angle " + desiredAngle.ToString() + " + buffer of " + bufferZone.ToString());
+
             transform.RotateAround(transform.parent.position, Vector3.up, -1);
         }
 
