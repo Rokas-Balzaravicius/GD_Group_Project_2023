@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -122,7 +123,10 @@ public class CharacterMovementScript : MonoBehaviour
     {
         print("Ouch!!! I just hit a "+ collision.gameObject.name);
         
-    }   
+    }
 
-
+    internal void give(int quantiityInNcode, int typeID)
+    {
+        throw new NotImplementedException();
+    }
 }
