@@ -12,6 +12,11 @@ public class MoveJammo : MonoBehaviour
     /// </summary>
     float checkDistance = 1;
     float checkRadius = 0.5f;
+
+
+    internal enum characterState { Idle, Walk, Run, Pickup, Harvesting };
+
+    internal characterState currentlyIam = characterState.Idle;
     Animator jammoAnimator;
 
     // Start is called before the first frame update
@@ -23,6 +28,10 @@ public class MoveJammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (currentlyIam)
+        {
+
+        }
         if (Input.GetKey(KeyCode.S))
         {   ///   s            =         u                      *       t
             transform.position += -walkingSpeed * transform.forward * Time.deltaTime; ;
@@ -56,12 +65,12 @@ public class MoveJammo : MonoBehaviour
             print("Found " + allPossibleInteractives.Length.ToString());
             foreach (Collider c in allPossibleInteractives)
             {
-                RockScript myRock = c.GetComponent<RockScript>();
+                RockResourceScript myRock = c.GetComponent<RockResourceScript>();
                 if (myRock != null)
                 {
                     print("I found a rock");
                     myRock.ImHarvestingYou(this);
-
+                    currentlyIam 
                 }
 
             }
