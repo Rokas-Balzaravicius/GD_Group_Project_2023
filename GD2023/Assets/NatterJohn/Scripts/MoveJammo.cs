@@ -17,7 +17,7 @@ public class MoveJammo : MonoBehaviour
 
     internal enum characterState { Idle, Walk, Run, Pickup, Harvesting };
 
-    internal characterState currentlyIam = characterState.Idle;
+    internal characterState currentlyIAm = characterState.Idle;
     Animator jammoAnimator;
 
     // Start is called before the first frame update
@@ -29,8 +29,36 @@ public class MoveJammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (currentlyIam)
+        switch (currentlyIAm)
         {
+            case characterState.Idle:
+
+
+                break;
+
+            case characterState.Walk:
+
+
+
+
+                break;
+            case characterState.Run:
+
+
+                break
+
+                    ;
+            case characterState.Pickup:
+
+
+                break;
+
+            case characterState.Harvesting:
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                    currentlyIAm = characterState.Idle;
+
+                break;
 
         }
         if (Input.GetKey(KeyCode.S))
@@ -70,6 +98,7 @@ public class MoveJammo : MonoBehaviour
                 if (myRock != null)
                 {
                     print("I found a rock");
+
                 }
 
             }
