@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KassResourceManager : MonoBehaviour
+public class KResourceManager : MonoBehaviour
 {
 
     public Transform rockCloneTemplate;
@@ -15,6 +15,7 @@ public class KassResourceManager : MonoBehaviour
         for (int i = 0; i < NUMBER_OF_ROCKS; i++)
         {
             Instantiate(rockCloneTemplate, getRockSpawnLocation(), Quaternion.identity);
+            print(i);
         }
     }
 
