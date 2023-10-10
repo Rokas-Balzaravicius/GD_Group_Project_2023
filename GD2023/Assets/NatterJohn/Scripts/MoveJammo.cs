@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,13 +66,13 @@ public class MoveJammo : MonoBehaviour
             print("Found " + allPossibleInteractives.Length.ToString());
             foreach (Collider c in allPossibleInteractives)
             {
-                RockResourceScript myRock = c.GetComponent<RockResourceScript>();
+                RockScript myRock = c.GetComponent<RockScript>();
                 if (myRock != null)
                 {
                     print("I found a rock");
 
-                    myRock.ImHarvestingYou(this);
-                    currentlyIam 
+                   // myRock.ImHarvestingYou(this);
+                    
 
  
                 }
@@ -86,5 +87,10 @@ public class MoveJammo : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         print("Ouch!!! I just hit a " + collision.gameObject.name);
+    }
+
+    internal void give(int quantityInNode, int typeId)
+    {
+        throw new NotImplementedException();
     }
 }
