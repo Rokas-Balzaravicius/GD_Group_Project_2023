@@ -1,21 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class JammoResources : MonoBehaviour
 {
 
-    List<RockScript> allRocks;
+
     public Transform rockCloneTemplate;
 
     int NUMBER_OF_ROCKS = 100;
 
+    
     // Start is called before the first frame update
     void Start()
     {
-        allRocks = new List<RockScript>();
+
         for (int i = 0; i < NUMBER_OF_ROCKS; i++)
         {
             spawnRockinRandomLocation();
@@ -25,8 +25,9 @@ public class ResourceManager : MonoBehaviour
 
     private void spawnRockinRandomLocation()
     {
+        List<RockResourceScript> JammoResources.allRocks;
         Transform newRocktf = Instantiate(rockCloneTemplate, getRockSpawnLocation(), Quaternion.identity);
-        RockScript newRock = newRocktf.GetComponent<RockScript>();
+        RockResourceScript newRock = newRocktf.GetComponent<RockResourceScript>();
         newRock.IamYourManager(this);
         allRocks.Add(newRock);
     }
@@ -42,13 +43,13 @@ public class ResourceManager : MonoBehaviour
         
     }
 
-    internal void IveBeenHarvested(RockScript rockScript)
+    internal void IveBeenHarvested(RockResourceScript rockResourceScript)
     {
         print("Spawning new Rock");
 
-        // remove from list
 
-        allRocks.Remove(rockScript);
+
+        allRocks.Remove(rockResourceScript);
 
 
     }

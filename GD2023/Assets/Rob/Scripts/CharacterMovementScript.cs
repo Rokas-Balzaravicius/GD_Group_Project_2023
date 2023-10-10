@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows.Input;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,7 +20,9 @@ public class CharacterMovementScript : MonoBehaviour
     float checkRadius = 0.5f;
     private float turningSpeed = 130;
 
+    internal enum characterState { Idle, Walk, Run, Pickup, Havesting}
 
+    internal characterState currentlyIAm   = characterState.Idle;
     Animator edAnimator;
 
     // Start is called before the first frame update
@@ -31,6 +34,45 @@ public class CharacterMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch(currentlyIAm)
+        {
+            case characterState.Idle:
+
+
+                break;
+
+            case characterState.Walk:
+
+
+
+
+                break;
+            case characterState.Run:
+
+
+                break
+
+                    ; case characterState.Pickup:
+
+
+                break;
+
+            case characterState.Havesting:
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                    currentlyIAm = characterState.Idle;
+
+                break;
+
+
+
+
+
+
+
+
+        }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = runningSpeed;
@@ -105,6 +147,7 @@ public class CharacterMovementScript : MonoBehaviour
                 {
                     print("I found a rock");
                     myRock.ImHavestingYou(this);
+                    currentlyIAm = characterState.Havesting;
 
                 }
             
@@ -125,8 +168,16 @@ public class CharacterMovementScript : MonoBehaviour
         
     }
 
-    internal void give(int quantiityInNcode, int typeID)
+
+    internal void give(int quantityInNode, int typeId)
     {
-        throw new NotImplementedException();
+        // place in inventory
+
+        print(" have just received " + quantityInNode.ToString() + " of type"
+             + typeId.ToString()); 
+
+        if (currentlyIAm == characterState.Havesting) { currentlyIAm = characterState.Idle; }
+
+
     }
 }
