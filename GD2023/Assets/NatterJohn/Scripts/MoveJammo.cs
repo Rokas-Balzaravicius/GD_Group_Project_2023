@@ -99,12 +99,6 @@ public class MoveJammo : MonoBehaviour
                 {
                     print("I found a rock");
 
-
-                    //myRock.ImHarvestingYou(this);
-                    currentlyIAm = characterState.Harvesting;
-
-
-
                 }
 
             }
