@@ -18,7 +18,7 @@ public class RockScript : MonoBehaviour
     CharacterMovementScript charWhoIsHarvestingMe;
     ResourceManager theManager;
 
-    internal void ImHavestingYou(CharacterMovementScript harvester)
+    internal void ImHarvestingYou(CharacterMovementScript harvester)
     {
         print("Yikes Im being harvested");
        
