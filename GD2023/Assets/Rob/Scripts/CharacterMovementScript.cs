@@ -168,6 +168,7 @@ public class CharacterMovementScript : MonoBehaviour
         
     }
 
+
     internal void give(int quantityInNode, int typeId)
     {
         // place in inventory
