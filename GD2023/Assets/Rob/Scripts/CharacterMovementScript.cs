@@ -62,7 +62,7 @@ public class CharacterMovementScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     currentlyIAm = characterState.Idle;
-
+                    edAnimator.SetBool("isMining", false);
                 }
 
                 break;
@@ -183,7 +183,11 @@ public class CharacterMovementScript : MonoBehaviour
         print(" have just received " + quantityInNode.ToString() + " of type"
              + typeId.ToString()); 
 
-        if (currentlyIAm == characterState.Havesting) { currentlyIAm = characterState.Idle; }
+        if (currentlyIAm == characterState.Havesting) {
+            
+            currentlyIAm = characterState.Idle;
+            edAnimator.SetBool("isMining", false);
+        }
 
 
     }
