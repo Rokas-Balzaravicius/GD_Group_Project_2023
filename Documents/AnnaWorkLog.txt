@@ -3,3 +3,13 @@
 19/09/2023
 20/09/2023 Open on my own PC
 05/10/23
+16/10/23
+I've created two canvases:
+
+The first canvas, named "Canvas," allows you to display windows with text. I've created two scripts, "TooltipManager" and "Tooltip," for this canvas. The "TooltipManager" script manages the cursor's position, text, and shows/hides tooltips. The "Tooltip" script is intended to be placed on objects to display unique tooltips with customizable text for each object.
+
+The second canvas, named "Character Stats Canvas," is designed for displaying character statistics, such as health, stamina, level and ets. To display this canvas, I've created a "CharacterStatsBar" script that is attached to the main character.
+
+I've also created a prefab for a Linear Progress Bar, which can be reused for various tooltips.
+
+In addition to this, I've imported assets from the Unity Asset Store, the "Icon Pack (2D)," and from the website "kenney.nl," the "UI Assets Pack (2D)."
