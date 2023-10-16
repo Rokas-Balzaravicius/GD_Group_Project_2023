@@ -23,9 +23,12 @@ public class thirdpersoncameracontrol : MonoBehaviour
     void Update()
     {
 
-        desiredAngle += sensitivity * Input.GetAxis("Horizontal") * Time.deltaTime;
+        if (Input.GetMouseButton(1))
+        {
+            desiredAngle += sensitivity * Input.GetAxis("Horizontal") * Time.deltaTime;
 
-        desiredAngle = Mathf.Clamp(desiredAngle,-179f, 179f);
+            desiredAngle = Mathf.Clamp(desiredAngle, -179f, 179f);
+        }
 
         if (angleIsTooSmall())
         {

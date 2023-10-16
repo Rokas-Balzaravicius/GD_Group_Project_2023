@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5243219232761456315}
   - component: {fileID: 3909785332444568388}
   - component: {fileID: -4978314176285014153}
+  - component: {fileID: -3972403675935724120}
   m_Layer: 0
   m_Name: Rock_01
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5243219232759265403}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.85556585, y: 0.5345735, z: 0.8734082}
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d7219c32806b348bc434c3a63658c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3972403675935724120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243219232759265403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da85c09456ddd449b7f4df2ad22955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: This ia a rock!

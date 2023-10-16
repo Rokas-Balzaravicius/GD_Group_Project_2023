@@ -38,7 +38,7 @@ public class CharacterMovementScript : MonoBehaviour
         {
             case characterState.Idle:
 
-
+                
                 break;
 
             case characterState.Walk:
@@ -60,17 +60,12 @@ public class CharacterMovementScript : MonoBehaviour
             case characterState.Havesting:
 
                 if (Input.GetKeyDown(KeyCode.Space))
+                {
                     currentlyIAm = characterState.Idle;
+                    edAnimator.SetBool("isMining", false);
+                }
 
                 break;
-
-
-
-
-
-
-
-
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -140,23 +135,27 @@ public class CharacterMovementScript : MonoBehaviour
             // Harvest Check
             Collider[] allPossibleInteractives = Physics.OverlapSphere(transform.position + checkDistance * transform.forward, checkRadius);
             print("Found " + allPossibleInteractives.Length.ToString());
+            
             foreach (Collider c in allPossibleInteractives)
-            {
-                RockScript myRock = c.GetComponent<RockScript>();
-                if (myRock != null)
+            {   if (currentlyIAm != characterState.Havesting)
                 {
-                    print("I found a rock");
-                    myRock.ImHavestingYou(this);
-                    currentlyIAm = characterState.Havesting;
+                    RockScript myRock = c.GetComponent<RockScript>();
+                    if (myRock != null)
+                    {
+                        print("I found a rock");
+                        myRock.ImHarvestingYou(this);
+                        currentlyIAm = characterState.Havesting;
+                        edAnimator.SetBool("isMining", true);
 
+                    }
                 }
             
             }
-            edAnimator.SetBool("pickUP", true);
+           
         }
         else 
         { 
-            edAnimator.SetBool("pickUP", false);
+      
         }
 
     }
@@ -176,7 +175,11 @@ public class CharacterMovementScript : MonoBehaviour
         print(" have just received " + quantityInNode.ToString() + " of type"
              + typeId.ToString()); 
 
-        if (currentlyIAm == characterState.Havesting) { currentlyIAm = characterState.Idle; }
+        if (currentlyIAm == characterState.Havesting) {
+            
+            currentlyIAm = characterState.Idle;
+            edAnimator.SetBool("isMining", false);
+        }
 
 
     }
