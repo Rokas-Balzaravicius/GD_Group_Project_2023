@@ -5,14 +5,17 @@ using TMPro;
 
 public class TooltipManager : MonoBehaviour
 {
-    float instanceX = 700;
-    float instanceY = 250;
-    float instanceZ = 0;
+   
     public static TooltipManager instance;
     public TextMeshProUGUI textComponent;
 
+    public RectTransform rectTransform;
+
+
     private void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -33,8 +36,13 @@ public class TooltipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Input.mousePosition;
-        instance.transform.position = new Vector3(instanceX, instanceY, instanceZ);
+        Vector3 position = Input.mousePosition;
+        transform.position = position;
+
+        float pivotX = position.x / Screen.width;
+        float pivotY = position.y / Screen.height;
+
+        rectTransform.pivot = new Vector3(pivotX, pivotY);
     }
 
     public void SetAndShowToolTip(string message)
