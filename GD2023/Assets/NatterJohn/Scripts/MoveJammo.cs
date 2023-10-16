@@ -66,7 +66,7 @@ public class MoveJammo : MonoBehaviour
             transform.position += -walkingSpeed * transform.forward * Time.deltaTime; ;
             jammoAnimator.SetBool("isWalking", true);
         }
-        else
+        else 
             jammoAnimator.SetBool("isWalking", false);
 
         if (Input.GetKey(KeyCode.W))
