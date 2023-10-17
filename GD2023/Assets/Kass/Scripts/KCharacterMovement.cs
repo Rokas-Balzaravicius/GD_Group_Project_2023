@@ -44,16 +44,6 @@ public class KCharacterMovement : MonoBehaviour
             animator.SetBool("walkJump", false);
         }
 
-        //Camera Movement
-        if (Input.GetAxis("Mouse X") < 0)
-        {
-            transform.Rotate(transform.up, -sensitivity * Time.deltaTime);
-        }
-        else if (Input.GetAxis("Mouse X") > 0)
-        {
-            transform.Rotate(transform.up, sensitivity * Time.deltaTime);
-        }
-
 
         //Sprint
         if (Input.GetKey(KeyCode.LeftControl))
