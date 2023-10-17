@@ -66,14 +66,6 @@ public class CharacterMovementScript : MonoBehaviour
                 }
 
                 break;
-
-
-
-
-
-
-
-
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
