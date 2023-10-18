@@ -11,6 +11,7 @@ public class KCharacterMovement : MonoBehaviour
     bool grounded;
     float checkDistance = 1;
     float checkRadius = 0.5f;
+    private float turningSpeed = 130;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -121,13 +122,49 @@ public class KCharacterMovement : MonoBehaviour
         //Walk Left
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= transform.right * Time.deltaTime * strafe;
+            transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
+            transform.position += transform.forward * Time.deltaTime * strafe;
+            animator.SetBool("isWalking", true);
+
+            if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
+            {
+                rb.AddForce(Vector3.up * force);
+                grounded = false;
+                animator.SetBool("walkJump", true);
+                animator.SetBool("onGround", false);
+            }
         }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            animator.SetTrigger("Shield");
+        }
+
 
         //Walk Right
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * Time.deltaTime * strafe;
+            transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
+            transform.position += transform.forward * Time.deltaTime * strafe;
+            animator.SetBool("isWalking", true);
+
+            if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
+            {
+                rb.AddForce(Vector3.up * force);
+                grounded = false;
+                animator.SetBool("walkJump", true);
+                animator.SetBool("onGround", false);
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
         }
 
         if (Input.GetKeyDown(KeyCode.F))

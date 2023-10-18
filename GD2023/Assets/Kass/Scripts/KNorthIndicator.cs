@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class KNorthIndicator : MonoBehaviour
 {
-    public float sensitivity;
+
+    public Transform player;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,8 @@ public class KNorthIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse X") < 0)
-        {
-            transform.Rotate(transform.forward, -sensitivity * Time.deltaTime);
-        }
-        else if (Input.GetAxis("Mouse X") > 0)
-        {
-            transform.Rotate(transform.forward, sensitivity * Time.deltaTime);
-        }
+        float angle = Mathf.Atan2(player.forward.z, player.forward.x) * Mathf.Rad2Deg;
+        // Apply the rotation to the north indicator.
+        transform.rotation = Quaternion.Euler(0, 0, -angle);
     }
 }
