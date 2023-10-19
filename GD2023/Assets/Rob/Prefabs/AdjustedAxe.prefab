@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8822315832395529688}
+  - component: {fileID: 8745850416110926503}
+  - component: {fileID: 6116842559950409316}
   m_Layer: 0
   m_Name: AdjustedAxe
   m_TagString: Untagged
@@ -25,13 +27,38 @@ Transform:
   m_GameObject: {fileID: 2872290208310002977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7187163447938098977}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8745850416110926503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872290208310002977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d64223a4a2204c88785baf2c57f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6116842559950409316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872290208310002977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11, y: 0.22, z: 0.22}
+  m_Center: {x: 0, y: 0.32, z: 0.1}
 --- !u!1001 &7187163447937973665
 PrefabInstance:
   m_ObjectHideFlags: 0

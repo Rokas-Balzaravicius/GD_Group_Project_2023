@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 709968164570350798}
+  - component: {fileID: 7133430942346220327}
+  - component: {fileID: 1383375978825083506}
   m_Layer: 0
   m_Name: Axe2 Adjusted
   m_TagString: Untagged
@@ -26,12 +28,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.01, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9091494307077406219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7133430942346220327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856393979585801735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 2.67, z: 0.03}
+  m_Center: {x: 0, y: 2.87, z: 0}
+--- !u!114 &1383375978825083506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856393979585801735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d64223a4a2204c88785baf2c57f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9091494307077268619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b7b39aed32e3dc048ab3aa18ac06fe54, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b7b39aed32e3dc048ab3aa18ac06fe54, type: 3}
       propertyPath: m_LocalScale.z
@@ -98,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: b7b39aed32e3dc048ab3aa18ac06fe54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b7b39aed32e3dc048ab3aa18ac06fe54, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b39aed32e3dc048ab3aa18ac06fe54, type: 3}
