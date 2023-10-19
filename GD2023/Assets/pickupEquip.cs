@@ -9,7 +9,7 @@ public class pickupEquip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Transform childTransform in RightHandCarry.transform) ;
+       // foreach (Transform childTransform in RightHandCarry.transform) ;
     }
 
     // Update is called once per frame
