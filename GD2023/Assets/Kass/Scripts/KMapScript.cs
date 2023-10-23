@@ -17,6 +17,7 @@ public class KMapScript : MonoBehaviour
     void Update()
     {
         Transform parentTransform = transform.parent;
+        transform.localScale = new Vector3(parentTransform.localScale.x / 1920, parentTransform.localScale.y / 1080, 1);
         Vector3 newSize = new Vector3((parentTransform.localScale.x/2), -(parentTransform.localScale.y/2), 0);
         Vector3 newPos = newSize - offset;
         transform.position = newPos;
