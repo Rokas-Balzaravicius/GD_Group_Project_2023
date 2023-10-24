@@ -7,6 +7,7 @@ public class Tooltip : MonoBehaviour
 {
     private string message;
     Transform ownerTransform;
+  
 
     internal void assignMessage(string newMessage)
     {
@@ -26,6 +27,6 @@ public class Tooltip : MonoBehaviour
 
     private void OnMouseExit()
     {
-      //  TooltipManager.instance.HideTooltip();
+        TooltipManager.instance.HideTooltip();
     }
 }
