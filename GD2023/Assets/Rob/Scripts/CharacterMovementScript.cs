@@ -169,6 +169,12 @@ public class CharacterMovementScript : MonoBehaviour
       
         }
 
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+          Tooltip myToolTip = gameObject.AddComponent<Tooltip>();
+            myToolTip.assignMessage("Hello there", transform);
+        }
     }
 
 
