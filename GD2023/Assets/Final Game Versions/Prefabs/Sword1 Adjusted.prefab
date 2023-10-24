@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5756937239305782518}
   - component: {fileID: 7803647160938869739}
+  - component: {fileID: 5705587877607913995}
   m_Layer: 0
   m_Name: Sword1 Adjusted
   m_TagString: Untagged
@@ -47,6 +48,18 @@ CapsuleCollider:
   m_Height: 2.27
   m_Direction: 1
   m_Center: {x: 0, y: 2.31, z: 0}
+--- !u!114 &5705587877607913995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217593210321739592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d64223a4a2204c88785baf2c57f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3477305618042340484
 PrefabInstance:
   m_ObjectHideFlags: 0
