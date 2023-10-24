@@ -24,10 +24,12 @@ public class CharacterMovementScript : MonoBehaviour
 
     internal characterState currentlyIAm   = characterState.Idle;
     Animator edAnimator;
+    WeaponSwap handsControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        handsControl = GetComponentInChildren<WeaponSwap>();
         edAnimator = GetComponent<Animator>();
     }
 
@@ -149,7 +151,16 @@ public class CharacterMovementScript : MonoBehaviour
 
                     }
                 }
-            
+
+
+                PickUP newItem = c.GetComponent<PickUP>();
+                if (newItem != null)
+                {
+                    print("I found an item");
+                    handsControl.equip(newItem);
+
+                }
+
             }
            
         }
