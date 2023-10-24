@@ -8,11 +8,12 @@ public class CursorManager : MonoBehaviour
     [SerializeField] private int frameCount;
     [SerializeField] private float frameRate;
 
-    //[SerializeField] private List<CursorAnimation> cursorAnimationList;
-    //private CursorAnimation cursorAnimation;
     private int currentCursorIndex;
     private float frameTimer;
+    public string RaycastReturn;
     private Texture2D cursorTexture;
+    private Vector2 mousePosition;
+
 
     public enum CursorType {
         pointerCursor,
@@ -22,49 +23,53 @@ public class CursorManager : MonoBehaviour
         npcCursor
     }
 
-    private void Start() {
-        //cursorTexture = cursorTextureArray[0];
-        //Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto); 
-        //SetActiveCursorType(CursorType.pointerCursor);
+    private void Start() 
+    {
+        cursorTexture = cursorTextureArray[0];
+        Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        mousePosition = Input.mousePosition;
+
+        RaycastHit hit;
+        Ray ourRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ourRay, out hit))
+        {
+            if (hit.collider != null)
+            {
+                RaycastReturn = hit.collider.gameObject.name;
+                if (RaycastReturn == "Rock_04" || RaycastReturn == "Rock_04(Clone)")
+                {
+                    print(RaycastReturn);
+                    cursorTexture = cursorTextureArray[2];
+                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                }
+                else if (RaycastReturn == "free_male_1")
+                {
+                    print(RaycastReturn);
+                    cursorTexture = cursorTextureArray[4];
+                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                }
+                else
+                {
+                    cursorTexture = cursorTextureArray[0];
+                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                }
+            }
+        }
+    
+
+        if (Input.GetKeyUp(KeyCode.Space)) 
+        {
             print(currentCursorIndex);
-            currentCursorIndex++;
+              currentCursorIndex++;
             currentCursorIndex = currentCursorIndex % cursorTextureArray.Length;
             cursorTexture = cursorTextureArray[currentCursorIndex];
             Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
         }
     }
 
-    //private void SetActiveCursorType(CursorType cursorType) {
-        //SetActiveCursorTexture(GetCursorTexture(cursorType));
     }
 
-    //private Texture2D GetCursorTexture(CursorType cursorType) {
-        //foreach (Texture2D cursorTexture in cursorTextureArray) { 
-                //if (cursorTexture.cursorTexture == cursorType) { 
-                    //return cursorTexture; 
-                //}
-        //}
-        //return null;
-    //}
-
-    //private void SetActiveCursorTexture(Texture2D cursorTexture) {
-        //this.cursorTexture = cursorTexture;
-        //currentCursorIndex = 0;
-        //frameTimer = cursorTexture.frameRate;
-        //frameCount = cursorTexture.textureArray.Length;
-    //}
-
-    //[System.Serializable]
-    //public class CursorAnimation {
-
-        //public CursorType cursorType;
-        //public Texture2D[] textureArray;
-        //public float frameRate;
-        //public Vector2 offset;
-
-    //}
-//}
