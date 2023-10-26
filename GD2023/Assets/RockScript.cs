@@ -17,6 +17,7 @@ public class RockScript : MonoBehaviour
 
     CharacterMovementScript charWhoIsHarvestingMe;
     ResourceManager theManager;
+    public Invertory invertory;
 
     internal void ImHarvestingYou(CharacterMovementScript harvester)
     {
@@ -56,7 +57,7 @@ public class RockScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case ResourceState.BeingHarvested:
 
@@ -69,7 +70,7 @@ public class RockScript : MonoBehaviour
                     Destroy(gameObject);
                 }
 
-                if (charWhoIsHarvestingMe.currentlyIAm != 
+                if (charWhoIsHarvestingMe.currentlyIAm !=
                                 CharacterMovementScript.characterState.Havesting)
                 {
                     currentState = ResourceState.Idle;
@@ -79,8 +80,8 @@ public class RockScript : MonoBehaviour
 
 
 
-                break; 
-            
+                break;
+
             case ResourceState.Idle:
 
 
@@ -88,7 +89,9 @@ public class RockScript : MonoBehaviour
 
         }
 
-        
+
+
+
     }
 
     internal void IamYourManager(ResourceManager resourceManager)
