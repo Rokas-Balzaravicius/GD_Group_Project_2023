@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Brandon/Menu/Scenes/Main menu.unity
+    guid: c0866bc40855b7840b636ef0313391df
+  - enabled: 1
+    path: Assets/Brandon/Scenes/BMScenery.unity
+    guid: 7d251a7743442ae48baa67a77ecd0aee
   m_configObjects: {}
