@@ -8,6 +8,8 @@ using UnityEngine;
 public class CharacterMovementScript : MonoBehaviour
 {
 
+    Invertory charInventory;
+
     float currentSpeed = 2;
     float walkingSpeed = 2;
     float runningSpeed = 4;
@@ -31,6 +33,8 @@ public class CharacterMovementScript : MonoBehaviour
     {
         handsControl = GetComponentInChildren<WeaponSwap>();
         edAnimator = GetComponent<Animator>();
+        charInventory = GetComponent<Invertory>();
+
     }
 
     // Update is called once per frame
@@ -198,6 +202,7 @@ public class CharacterMovementScript : MonoBehaviour
             edAnimator.SetBool("isMining", false);
         }
 
+        charInventory.put(quantityInNode, typeId);
 
     }
 }
