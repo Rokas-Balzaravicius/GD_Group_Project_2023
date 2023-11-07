@@ -12,6 +12,14 @@ public class CursorManager : MonoBehaviour
     private float frameTimer;
     public string RaycastReturn;
     private Texture2D cursorTexture;
+
+    Texture2D CursorTexture
+    {
+        get { return cursorTexture; }
+        set {  cursorTexture = value;
+            Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+        }
+    }
     private Vector2 mousePosition;
 
 
@@ -25,8 +33,8 @@ public class CursorManager : MonoBehaviour
 
     private void Start() 
     {
-        cursorTexture = cursorTextureArray[0];
-        Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+        CursorTexture = cursorTextureArray[0];
+  
     }
     private void Update()
     {
@@ -39,35 +47,41 @@ public class CursorManager : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                RaycastReturn = hit.collider.gameObject.name;
+                RaycastReturn = hit.collider.name;
                 if (RaycastReturn == "Rock_04" || RaycastReturn == "Rock_04(Clone)")
                 {
                     print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[2];
-                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                    CursorTexture = cursorTextureArray[2];
+
                 }
                 else if (RaycastReturn == "free_male_1")
                 {
                     print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[4];
-                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                    CursorTexture = cursorTextureArray[4];
+  
+                }
+                else if (RaycastReturn == "Taipan")
+                {
+                    print(RaycastReturn);
+                    CursorTexture = cursorTextureArray[3];
+
+                }
+                else if (RaycastReturn == "pear")
+                {
+                    print(RaycastReturn);
+                    CursorTexture = cursorTextureArray[1];
+
                 }
                 else
                 {
-                    cursorTexture = cursorTextureArray[0];
-                    Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+                    CursorTexture = cursorTextureArray[0];
                 }
+    
             }
         }
-    
-
-        if (Input.GetKeyUp(KeyCode.Space)) 
-        {
-            print(currentCursorIndex);
-              currentCursorIndex++;
-            currentCursorIndex = currentCursorIndex % cursorTextureArray.Length;
-            cursorTexture = cursorTextureArray[currentCursorIndex];
-            Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+        else {
+            CursorTexture = cursorTextureArray[0];
+       
         }
     }
 
