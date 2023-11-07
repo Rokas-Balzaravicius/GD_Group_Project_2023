@@ -12,7 +12,7 @@ public class CharacterMovementScript : MonoBehaviour
     float walkingSpeed = 2;
     float runningSpeed = 4;
 
-    
+    TooltipManager tooltipManager;
     /// <summary>
     /// The distance to the centre of the sphere used to check for interactable objects
     /// </summary>
@@ -29,6 +29,7 @@ public class CharacterMovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tooltipManager = FindAnyObjectByType<TooltipManager>();
         handsControl = GetComponentInChildren<WeaponSwap>();
         edAnimator = GetComponent<Animator>();
     }
@@ -172,8 +173,8 @@ public class CharacterMovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-          Tooltip myToolTip = gameObject.AddComponent<Tooltip>();
-            myToolTip.assignMessage("Hello there", transform);
+       //   Tooltip myToolTip = tooltipManager.gameObject.AddComponent<Tooltip>();
+        //    myToolTip.assignMessage("Hello there", transform);
         }
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7052328927771529800}
   - component: {fileID: 7052328927771529801}
   m_Layer: 5
-  m_Name: Tooltip Text
+  m_Name: TooltipText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,5 +228,3 @@ MonoBehaviour:
   textComponent: {fileID: 7052328927771529801}
   rectTransform: {fileID: 0}
   interactiveObject: {fileID: 5243219232759265403, guid: 5df58c802b892e54198d60daac6d8800, type: 3}
-  characterTransform: {fileID: 0}
-  interactDistanceThreshold: 3
