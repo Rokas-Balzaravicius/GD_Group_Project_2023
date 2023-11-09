@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,13 @@ public class CursorManager : MonoBehaviour
     private int currentCursorIndex;
     private float frameTimer;
     public string RaycastReturn;
-    private Texture2D cursorTexture;
+    private Texture2D cursorType;
 
-    Texture2D CursorTexture
+    Texture2D cursorTexture
     {
-        get { return cursorTexture; }
-        set {  cursorTexture = value;
-            Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+        get { return cursorType; }
+        set {  cursorType = value;
+            Cursor.SetCursor(cursorType, new Vector2(0, 0), CursorMode.Auto);
         }
     }
     private Vector2 mousePosition;
@@ -33,7 +34,7 @@ public class CursorManager : MonoBehaviour
 
     private void Start() 
     {
-        CursorTexture = cursorTextureArray[0];
+        cursorTexture = cursorTextureArray[0];
   
     }
     private void Update()
@@ -51,39 +52,43 @@ public class CursorManager : MonoBehaviour
                 if (RaycastReturn == "Rock_04" || RaycastReturn == "Rock_04(Clone)")
                 {
                     print(RaycastReturn);
-                    CursorTexture = cursorTextureArray[2];
+                    cursorTexture = cursorTextureArray[2];
 
                 }
                 else if (RaycastReturn == "free_male_1")
                 {
                     print(RaycastReturn);
-                    CursorTexture = cursorTextureArray[4];
+                    cursorTexture = cursorTextureArray[4];
   
                 }
                 else if (RaycastReturn == "Taipan")
                 {
                     print(RaycastReturn);
-                    CursorTexture = cursorTextureArray[3];
+                    cursorTexture = cursorTextureArray[3];
 
                 }
                 else if (RaycastReturn == "pear")
                 {
                     print(RaycastReturn);
-                    CursorTexture = cursorTextureArray[1];
+                    cursorTexture = cursorTextureArray[1];
 
                 }
                 else
                 {
-                    CursorTexture = cursorTextureArray[0];
+                    cursorTexture = cursorTextureArray[0];
                 }
     
             }
         }
         else {
-            CursorTexture = cursorTextureArray[0];
+            cursorTexture = cursorTextureArray[0];
        
         }
     }
 
+    internal bool isCurrentTexture(int v)
+    {
+        return cursorType == cursorTextureArray[v];
     }
+}
 
