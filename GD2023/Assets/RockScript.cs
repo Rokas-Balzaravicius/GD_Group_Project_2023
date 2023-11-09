@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockScript : MonoBehaviour
+public class RockScript : HarvestableItem
 {
     float TIME_TO_COLLECT = 3;
     float timer;
 
+
     enum ResourceState { Idle, BeingHarvested}
 
-    int typeId = 4;  // where 4 represents rock
-    int quantityInNode = 55;
+
     ResourceState currentState = ResourceState.Idle;
+
+    
 
 
     CharacterMovementScript charWhoIsHarvestingMe;
     ResourceManager theManager;
     public Invertory invertory;
 
-    internal void ImHarvestingYou(CharacterMovementScript harvester)
+    internal void ImHarvestingYou(HarvestableItem harvester)
     {
         print("Yikes Im being harvested");
        
@@ -51,7 +53,8 @@ public class RockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        typeId = 4;
+        quantityInNode = 55;
     }
 
     // Update is called once per frame
@@ -89,6 +92,7 @@ public class RockScript : MonoBehaviour
 
         }
 
+        
 
 
 
