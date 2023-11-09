@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 
 public class TooltipManager : MonoBehaviour
 {
    
     public static  TooltipManager instance;
-    public TextMeshProUGUI textComponent;
+    TextMeshProUGUI textComponent;
 
     public RectTransform rectTransform;
     private Transform ownerTransform;
@@ -21,6 +22,11 @@ public class TooltipManager : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
 
+
+
+        textComponent = GetComponentInChildren<TextMeshProUGUI>();
+
+    
         //if (instance != null && instance != this)
         //{
         //    Destroy(this.gameObject);
@@ -46,24 +52,15 @@ public class TooltipManager : MonoBehaviour
             print("World Position " + ownerTransform.position.ToString());
             position = Camera.main.WorldToScreenPoint(ownerTransform.position);
             print("Screen Position " + position.ToString());
+            rectTransform.position = position;
 
         }
     }
 
-    public void SetAndShowToolTip(string message)
-    {
-        gameObject.SetActive(true);
-        textComponent.text = message;
-    }
-
-    public void HideTooltip()
-    {
-        gameObject.SetActive(false);
-        textComponent.text = string.Empty;
-    }
 
     internal void SetAndShowToolTip(string message, Transform transformOfOwner)
     {
         ownerTransform = transformOfOwner;
+        textComponent.text = message;
     }
 }
