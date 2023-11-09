@@ -8,7 +8,6 @@ using static System.Net.Mime.MediaTypeNames;
 public class mouseInteractions : MonoBehaviour
 {
 
-
     public GameObject MessageCloneTemplate;
 
     TextMeshProUGUI textComponent;
@@ -45,45 +44,36 @@ public class mouseInteractions : MonoBehaviour
     void Update()
     {
 
-        Ray ourMouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit info;
-
-
-
-        if (Physics.Raycast(ourMouseRay, out info))
-        {
-            print(info.collider.name);
-        }
-
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            newMessageGO = Instantiate(MessageCloneTemplate, ourCanvas.transform);
-            StartCoroutine( waiter(newMessageGO));
-
-            TextMeshProUGUI textComponent = newMessageGO.GetComponentInChildren<TextMeshProUGUI>();
-
-            if (textComponent != null)
+      
+            if (Input.GetMouseButtonDown(0))
             {
-                textComponent.text = tooltipText;
-                textComponent.color = Color.black;
+                Ray ourRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                RaycastHit info;
+
+            if (Physics.Raycast(ourRay, out info))
+                {
+                    newMessageGO = Instantiate(MessageCloneTemplate, ourCanvas.transform);
+                    StartCoroutine(waiter(newMessageGO, info.transform, info.transform.name));
+
+
+ 
+
+                }
             }
-            // print("salfjhsaofh");
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            newMessageGO.SetActive(true);
+
 
         }
-    }
 
-    IEnumerator waiter(GameObject newMessageGO)
+
+    IEnumerator waiter(GameObject newMessageGO,  Transform parent, string message)
     {
         yield return new WaitForSeconds(1);
         newMessageGO.SetActive(true);
+        TooltipManager newMessage = newMessageGO.GetComponent<TooltipManager>();
+        newMessage.SetAndShowToolTip(message, parent);
+
 
 
     }
