@@ -146,11 +146,11 @@ public class CharacterMovementScript : MonoBehaviour
             foreach (Collider c in allPossibleInteractives)
             {   if (currentlyIAm != characterState.Havesting)
                 {
-                    RockScript myRock = c.GetComponent<RockScript>();
-                    if (myRock != null)
+                    HarvestableItem myItem = c.GetComponent<HarvestableItem>();
+                    if (myItem != null)
                     {
-                        print("I found a rock");
-                        myRock.ImHarvestingYou(this);
+                        print("I found an item");
+                        myItem.ImHarvestingYou(this);
                         currentlyIAm = characterState.Havesting;
                         edAnimator.SetBool("isMining", true);
 
