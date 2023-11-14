@@ -337,7 +337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 850628008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96002b8cd4d8f18439e73ecb45843ac9, type: 3}
+  m_Script: {fileID: 11500000, guid: fb3cb510f4f65f643be43dcb92aac764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cursorTextureArray:
@@ -1019,6 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d7219c32806b348bc434c3a63658c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertory: {fileID: 0}
 --- !u!114 &1788035878
 MonoBehaviour:
   m_ObjectHideFlags: 0
