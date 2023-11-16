@@ -8,7 +8,9 @@ public class ResourceManager : MonoBehaviour
 {
 
     List<RockScript> allRocks;
+        List<TreeScript> allTrees;
     public Transform rockCloneTemplate;
+    public Transform treeCloneTemplate;
 
     int NUMBER_OF_ROCKS = 100;
 
@@ -16,19 +18,34 @@ public class ResourceManager : MonoBehaviour
     void Start()
     {
         allRocks = new List<RockScript>();
+        allTrees = new List<TreeScript>();
+
         for (int i = 0; i < NUMBER_OF_ROCKS; i++)
         {
-            spawnRockinRandomLocation();
+            spawnCloneinRandomLocation(rockCloneTemplate);
+            spawnCloneinRandomLocation(treeCloneTemplate);
         }
 
     }
 
-    private void spawnRockinRandomLocation()
+    private void spawnCloneinRandomLocation(Transform clone)
     {
-        Transform newRocktf = Instantiate(rockCloneTemplate, getRockSpawnLocation(), Quaternion.identity);
-        RockScript newRock = newRocktf.GetComponent<RockScript>();
-        newRock.IamYourManager(this);
-        allRocks.Add(newRock);
+        Transform newClonetf = Instantiate(clone, getRockSpawnLocation(), Quaternion.identity);
+        
+        
+        RockScript newRock = newClonetf.GetComponent<RockScript>();
+        if (newRock != null)
+        {
+            newRock.IamYourManager(this);
+            allRocks.Add(newRock);
+        }
+        TreeScript newTree = newClonetf.GetComponent<TreeScript>();
+        if (newTree != null)
+        {
+            newTree.IamYourManager(this);
+            allTrees.Add(newTree);
+        }
+
     }
 
     private Vector3 getRockSpawnLocation()
@@ -42,13 +59,13 @@ public class ResourceManager : MonoBehaviour
         
     }
 
-    internal void IveBeenHarvested(RockScript rockScript)
+    internal void IveBeenHarvested(HarvestableItem harvestScript)
     {
         print("Spawning new Rock");
 
         // remove from list
-
-        allRocks.Remove(rockScript);
+        if (harvestScript is RockScript)
+            allRocks.Remove(harvestScript as RockScript);
 
 
     }

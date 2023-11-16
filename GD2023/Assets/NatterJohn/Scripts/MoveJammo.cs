@@ -110,7 +110,7 @@ public class MoveJammo : MonoBehaviour
                     if (myRock != null)
                     {
                         print("I found a rock");
-                        myRock.ImHarvestingYou(moveJammo: this);
+                       // myRock.ImHarvestingYou(moveJammo: this);
                         currentlyIAm = characterState.Harvesting;
 
                     }
