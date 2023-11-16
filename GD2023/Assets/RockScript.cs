@@ -5,38 +5,17 @@ using UnityEngine;
 
 public class RockScript : HarvestableItem
 {
-    float TIME_TO_COLLECT = 3;
-    float timer;
 
-
-    enum ResourceState { Idle, BeingHarvested}
-
-
-    ResourceState currentState = ResourceState.Idle;
 
     
 
 
-    CharacterMovementScript charWhoIsHarvestingMe;
-    ResourceManager theManager;
+ 
+
     public Invertory invertory;
 
-    internal void ImHarvestingYou(HarvestableItem harvester)
-    {
-        print("Yikes Im being harvested");
-       
-        charWhoIsHarvestingMe = harvester;
-        startHarvestProcess();
-    }
 
-    private void startHarvestProcess()
-    {
-        currentState = ResourceState.BeingHarvested;
-        // start Timer
-        timer = TIME_TO_COLLECT;
 
-        startVisualEffect();
-    }
 
     private void startVisualEffect()
     {
@@ -44,11 +23,7 @@ public class RockScript : HarvestableItem
         GetComponent<Renderer>().material.color = Color.green; ;
     }
 
-    private void endVisualEffect()
-    {
-        // start Visual effect
-        GetComponent<Renderer>().material.color = Color.white; ;
-    }
+  
 
     // Start is called before the first frame update
     void Start()
@@ -60,47 +35,22 @@ public class RockScript : HarvestableItem
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
-        {
-            case ResourceState.BeingHarvested:
-
-                timer -= Time.deltaTime;
-                if (timer < 0)
-                {
-                    // give the harvester the appropriate rescouces
-                    charWhoIsHarvestingMe.give(quantityInNode, typeId);
-                    theManager.IveBeenHarvested(this);
-                    Destroy(gameObject);
-                }
-
-                if (charWhoIsHarvestingMe.currentlyIAm !=
-                                CharacterMovementScript.characterState.Havesting)
-                {
-                    currentState = ResourceState.Idle;
-                    endVisualEffect();
-
-                }
-
-
-
-                break;
-
-            case ResourceState.Idle:
-
-
-                break;
-
-        }
-
-        
-
-
+        base.Update();
 
     }
 
-    internal void IamYourManager(ResourceManager resourceManager)
+
+    internal override void startHarvestProcess()
     {
-        theManager = resourceManager; 
-       
+        currentState = ResourceState.BeingHarvested;
+        // start Timer
+        timer = TIME_TO_COLLECT;
+
+        startVisualEffect();
+    }
+
+    protected override void endVisualEffect()
+    {
+        GetComponent<Renderer>().material.color = Color.white; ;
     }
 }

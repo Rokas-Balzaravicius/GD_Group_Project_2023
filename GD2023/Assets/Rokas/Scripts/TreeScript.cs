@@ -6,6 +6,7 @@ public class TreeScript : HarvestableItem
 {
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,23 @@ public class TreeScript : HarvestableItem
     }
 
     // Update is called once per frame
-    void Update()
+    internal void Update()
     {
-        
+        base.Update();
+    }
+
+
+    internal override void startHarvestProcess()
+    {
+        print("Im a tree and Im being harvested");
+
+        currentState = ResourceState.BeingHarvested;
+        // start Timer
+        timer = TIME_TO_COLLECT;
+    }
+
+    protected override void endVisualEffect()
+    {
+        throw new System.NotImplementedException();
     }
 }
