@@ -140,12 +140,6 @@ public class KCharacterMovement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            animator.SetTrigger("Shield");
-        }
-
-
         //Walk Right
         if (Input.GetKey(KeyCode.D))
         {
@@ -188,6 +182,12 @@ public class KCharacterMovement : MonoBehaviour
         else
         {
             animator.SetBool("pickUp", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            animator.SetBool("Shield", true);
+            print("Shield");
         }
     }
 }
