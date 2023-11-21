@@ -6,8 +6,20 @@ using UnityEngine;
 public abstract class HarvestableItem : MonoBehaviour
 {
     internal ResourceManager theManager;
+
+
     internal int typeId; 
     internal int quantityInNode;
+
+    /// <summary>
+    /// Id which links the appropriate mouse pointer image when hovering over it
+    /// </summary>
+    internal int cursorHoverId;
+
+
+    internal string toolTipDescription;
+
+
     internal CharacterMovementScript charWhoIsHarvestingMe;
     internal float TIME_TO_COLLECT = 3;
     internal float timer;
@@ -31,7 +43,7 @@ public abstract class HarvestableItem : MonoBehaviour
     // Update is called once per frame
     internal void Update()
     {
-        print("in HI");
+
         switch (currentState)
         {
             case ResourceState.BeingHarvested:

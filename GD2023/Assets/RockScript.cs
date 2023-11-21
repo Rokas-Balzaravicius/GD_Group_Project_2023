@@ -30,6 +30,8 @@ public class RockScript : HarvestableItem
     {
         typeId = 4;
         quantityInNode = 55;
+        cursorHoverId = 2;
+        toolTipDescription = "Rock Piece: Usable in crafting";
     }
 
     // Update is called once per frame
