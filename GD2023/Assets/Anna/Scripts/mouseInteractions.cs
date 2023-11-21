@@ -12,9 +12,7 @@ public class mouseInteractions : MonoBehaviour
 
     TextMeshProUGUI textComponent;
     Canvas ourCanvas;
-
-    String tooltipText = "Hello World!";
-
+    GameObject newMessageGO;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +37,10 @@ public class mouseInteractions : MonoBehaviour
         }
     }
 
-    GameObject newMessageGO;
+    
     // Update is called once per frame
     void Update()
     {
-
-      
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ourRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,17 +49,17 @@ public class mouseInteractions : MonoBehaviour
 
             if (Physics.Raycast(ourRay, out info))
                 {
+
+                    HarvestableItem item = info.transform.GetComponent<HarvestableItem>();
+
+                if (item != null)
+                {
                     newMessageGO = Instantiate(MessageCloneTemplate, ourCanvas.transform);
-                    StartCoroutine(waiter(newMessageGO, info.transform, info.transform.name));
-
-
- 
+                    StartCoroutine(waiter(newMessageGO, info.transform, item.toolTipDescription));
+                }
 
                 }
             }
-
-
-
         }
 
 
@@ -73,8 +69,6 @@ public class mouseInteractions : MonoBehaviour
         newMessageGO.SetActive(true);
         TooltipManager newMessage = newMessageGO.GetComponent<TooltipManager>();
         newMessage.SetAndShowToolTip(message, parent);
-
-
 
     }
 }
