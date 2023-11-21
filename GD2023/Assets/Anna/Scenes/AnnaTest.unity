@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockCloneTemplate: {fileID: 5243219232759161947, guid: a4203459b026cc24e9699b3dd3075740, type: 3}
+  treeCloneTemplate: {fileID: 2060499457982381598, guid: 50293da7e42808349a7adf9a48806185, type: 3}
 --- !u!4 &2066773210
 Transform:
   m_ObjectHideFlags: 0

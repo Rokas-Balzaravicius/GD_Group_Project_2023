@@ -21,20 +21,7 @@ public class TooltipManager : MonoBehaviour
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-
-
-
         textComponent = GetComponentInChildren<TextMeshProUGUI>();
-
-    
-        //if (instance != null && instance != this)
-        //{
-        //    Destroy(this.gameObject);
-        //}
-        //else
-        //{
-        //    instance = this;
-        //}
     }
     // Start is called before the first frame update
     void Start()
@@ -46,13 +33,18 @@ public class TooltipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 position;
+     
         if (ownerTransform)
         {
+            Vector2 position, canvasPos;
             print("World Position " + ownerTransform.position.ToString());
-            position = Camera.main.WorldToScreenPoint(ownerTransform.position);
+            position = Camera.main.WorldToScreenPoint(ownerTransform.position + Vector3.up);
             print("Screen Position " + position.ToString());
-            rectTransform.position = position;
+            Canvas can  = transform.parent.GetComponent<Canvas>();
+            RectTransform rect = can.GetComponent<RectTransform>();
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, position, null, out canvasPos);
+
+            rectTransform.localPosition = position;
 
         }
     }
