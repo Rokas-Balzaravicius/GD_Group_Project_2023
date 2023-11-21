@@ -3,47 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using static KHarvestableItem;
 
-public class KRockScript : KHarvestableItem
+public class KTreeScript : KHarvestableItem
 {
-    public Invertory invertory;
-
-
-
-
-    private void startVisualEffect()
-    {
-        // start Visual effect
-        GetComponent<Renderer>().material.color = Color.green; ;
-    }
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        typeId = 4;
-        quantityInNode = 55;
+        typeId = 1;
+        quantityInNode = 30;
     }
 
     // Update is called once per frame
-    void Update()
+    internal void Update()
     {
         base.Update();
-
     }
 
 
     internal override void startHarvestProcess()
     {
+        print("Im a tree and Im being harvested");
+
         currentState = ResourceState.BeingHarvested;
         // start Timer
         timer = TIME_TO_COLLECT;
-
-        startVisualEffect();
     }
 
     protected override void endVisualEffect()
     {
-        GetComponent<Renderer>().material.color = Color.white; ;
+        throw new System.NotImplementedException();
     }
 }
