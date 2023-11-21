@@ -24,6 +24,13 @@ public class InventorySlot
 
     internal bool check(int quantityInNode, int typeId)
     {
-        return true;
+        foreach (InventorySlot slot in Invertory) 
+        {
+            if(slot.type == typeId)
+            { 
+                return true; 
+            }
+        }
+        return false;
     }
 }
