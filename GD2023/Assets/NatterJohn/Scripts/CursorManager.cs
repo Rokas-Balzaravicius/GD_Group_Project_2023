@@ -38,7 +38,7 @@ public class CursorManager : MonoBehaviour
         cursorTexture = cursorTextureArray[0];
   
     }
-    private void Update(ResourceState resourceState)
+    private void Update()
     {
         mousePosition = Input.mousePosition;
 

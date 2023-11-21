@@ -23,7 +23,7 @@ public class mouseInteractions : MonoBehaviour
 
         foreach (Canvas c in allCanvas)
         {
-            if (c.name == "Canvas1")
+            if (c.name == "Canvas")
             {
                 ourCanvas = c;
             }
