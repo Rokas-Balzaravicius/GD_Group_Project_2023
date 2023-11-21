@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HarvestableItem;
 
 public class CursorManager : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class CursorManager : MonoBehaviour
         cursorTexture = cursorTextureArray[0];
   
     }
-    private void Update()
+    private void Update(ResourceState resourceState)
     {
         mousePosition = Input.mousePosition;
 
@@ -46,43 +47,26 @@ public class CursorManager : MonoBehaviour
 
         if (Physics.Raycast(ourRay, out hit))
         {
-            if (hit.collider != null)
+            HarvestableItem objectHit = hit.transform.GetComponent<HarvestableItem>();
+
+            if (objectHit != null)
             {
-                RaycastReturn = hit.collider.name;
-                if (RaycastReturn == "Rock_04" || RaycastReturn == "Rock_04(Clone)")
+                cursorTexture = cursorTextureArray[objectHit.cursorHoverId];
+                if (Input.GetMouseButtonDown(0))
                 {
-                    print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[2];
-
-                }
-                else if (RaycastReturn == "free_male_1")
-                {
-                    print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[4];
-  
-                }
-                else if (RaycastReturn == "Taipan")
-                {
-                    print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[3];
-
-                }
-                else if (RaycastReturn == "pear")
-                {
-                    print(RaycastReturn);
-                    cursorTexture = cursorTextureArray[1];
-
+                    //switch (currentState)
+                    //{
+                        //case ResourceState.BeingHarvested;
+                    //}
                 }
                 else
                 {
-                    cursorTexture = cursorTextureArray[0];
+                    
                 }
-    
             }
-        }
-        else {
-            cursorTexture = cursorTextureArray[0];
-       
+
+            else
+                cursorTexture = cursorTextureArray[0];
         }
     }
 
