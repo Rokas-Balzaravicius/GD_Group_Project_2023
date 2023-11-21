@@ -30,7 +30,8 @@ public class ResourceManager : MonoBehaviour
 
     private void spawnCloneinRandomLocation(Transform clone)
     {
-        Transform newClonetf = Instantiate(clone, getRockSpawnLocation(), Quaternion.identity);
+        Transform newClonetf =
+            Instantiate(clone, getRockSpawnLocation(), Quaternion.identity);
         
         
         RockScript newRock = newClonetf.GetComponent<RockScript>();
