@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockCloneTemplate: {fileID: 5243219232759161947, guid: 5df58c802b892e54198d60daac6d8800, type: 3}
+  treeCloneTemplate: {fileID: 2060499457982381598, guid: 9dece252d00379d498c99d7c4de847c5, type: 3}
 --- !u!1 &277706896
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static KHarvestableItem;
 
-public class TreeScript : HarvestableItem
+public class KTreeScript : KHarvestableItem
 {
 
 
@@ -12,9 +13,6 @@ public class TreeScript : HarvestableItem
     {
         typeId = 1;
         quantityInNode = 30;
-        cursorHoverId = 2;
-        toolTipDescription = "Log of Wood, can burn or use in crafting";
-
     }
 
     // Update is called once per frame
@@ -35,6 +33,6 @@ public class TreeScript : HarvestableItem
 
     protected override void endVisualEffect()
     {
-   
+        throw new System.NotImplementedException();
     }
 }

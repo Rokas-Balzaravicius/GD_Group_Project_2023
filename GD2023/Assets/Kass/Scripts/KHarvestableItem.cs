@@ -1,26 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HarvestableItem : MonoBehaviour
+public abstract class KHarvestableItem : MonoBehaviour
 {
-    internal ResourceManager theManager;
-
-
-    internal int typeId; 
+    internal KResourceManager theManager;
+    internal int typeId;
     internal int quantityInNode;
-
-    /// <summary>
-    /// Id which links the appropriate mouse pointer image when hovering over it
-    /// </summary>
-    internal int cursorHoverId;
-
-
-    internal string toolTipDescription;
-
-
-    internal CharacterMovementScript charWhoIsHarvestingMe;
+    internal KCharacterMovement charWhoIsHarvestingMe;
     internal float TIME_TO_COLLECT = 3;
     internal float timer;
 
@@ -32,18 +19,18 @@ public abstract class HarvestableItem : MonoBehaviour
 
 
 
- 
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     internal void Update()
     {
-
+        print("in HI");
         switch (currentState)
         {
             case ResourceState.BeingHarvested:
@@ -58,7 +45,7 @@ public abstract class HarvestableItem : MonoBehaviour
                 }
 
                 if (charWhoIsHarvestingMe.currentlyIAm !=
-                                CharacterMovementScript.characterState.Havesting)
+                                KCharacterMovement.characterState.Harvesting)
                 {
                     currentState = ResourceState.Idle;
                     endVisualEffect();
@@ -83,13 +70,13 @@ public abstract class HarvestableItem : MonoBehaviour
     }
 
 
-    internal void IamYourManager(ResourceManager resourceManager)
+    internal void IamYourManager(KResourceManager resourceManager)
     {
         theManager = resourceManager;
 
     }
 
-    internal void ImHarvestingYou(CharacterMovementScript character)
+    internal void ImHarvestingYou(KCharacterMovement character)
     {
         print("Yikes Im being harvested");
 
