@@ -37,14 +37,14 @@ public class TooltipManager : MonoBehaviour
         if (ownerTransform)
         {
             Vector2 position, canvasPos;
-            print("World Position " + ownerTransform.position.ToString());
+           // print("World Position " + ownerTransform.position.ToString());
             position = Camera.main.WorldToScreenPoint(ownerTransform.position + Vector3.up);
-            print("Screen Position " + position.ToString());
+           // print("Screen Position " + position.ToString());
             Canvas can  = transform.parent.GetComponent<Canvas>();
             RectTransform rect = can.GetComponent<RectTransform>();
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, position, null, out canvasPos);
 
-            rectTransform.localPosition = position;
+            rectTransform.position = position;
 
         }
     }
