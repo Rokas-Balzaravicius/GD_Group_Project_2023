@@ -19,6 +19,7 @@ public class NPCAI : MonoBehaviour
     private float timer;
     private float patrolChangeDiectionTime = 5;
     private float patrolSpeed = 1;
+    private float ATTACKCOOLDOWN = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -112,8 +113,17 @@ public class NPCAI : MonoBehaviour
 
             case NPCStates.Attack:
                 // damage ed periodically
-                // Animation for Attack
-                break;
+                timer -= Time.deltaTime;
+
+                if (timer < 0)
+                {
+                    print("snake Attack");
+                    lockOnTo.takeDamage(10);
+                    timer = ATTACKCOOLDOWN;
+                }
+
+                    // Animation for Attack
+                    break;
 
             case NPCStates.Patrol:
 

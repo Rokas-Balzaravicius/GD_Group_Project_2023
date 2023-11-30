@@ -5,7 +5,7 @@ using System.Windows.Input;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterMovementScript : MonoBehaviour
+public class CharacterMovementScript : MonoBehaviour,IHealth
 {
 
     Invertory charInventory;
@@ -27,6 +27,7 @@ public class CharacterMovementScript : MonoBehaviour
     internal characterState currentlyIAm   = characterState.Idle;
     Animator edAnimator;
     WeaponSwap handsControl;
+    private int health = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -198,5 +199,13 @@ public class CharacterMovementScript : MonoBehaviour
 
         charInventory.put(quantityInNode, typeId);
 
+    }
+
+    public void takeDamage(int damage)
+    {
+       health-=damage;
+     
+        if (health < 0) { Destroy(gameObject); }
+        print("Ouch my health is now " + health.ToString());
     }
 }
